@@ -22,8 +22,8 @@
 #endif
 
 #include "php.h"
-#include "php_phalcon.h"
-#include "phalcon.h"
+#include "php_yal.h"
+#include "yal.h"
 
 #include "Zend/zend_operators.h"
 #include "Zend/zend_exceptions.h"
@@ -101,19 +101,19 @@
 /**
  * Phalcon\Acl\Adapter\Memory initializer
  */
-PHALCON_INIT_CLASS(Phalcon_Acl_Adapter_Memory){
+YAL_INIT_CLASS(Yal_Acl_Adapter_Memory){
 
-	PHALCON_REGISTER_CLASS_EX(Phalcon\\Acl\\Adapter, Memory, acl_adapter_memory, "phalcon\\acl\\adapter", phalcon_acl_adapter_memory_method_entry, 0);
+	YAL_REGISTER_CLASS_EX(Yal\\Acl\\Adapter, Memory, acl_adapter_memory, "yal\\acl\\adapter", yal_acl_adapter_memory_method_entry, 0);
 
-	zend_declare_property_null(phalcon_acl_adapter_memory_ce, SL("_rolesNames"), ZEND_ACC_PROTECTED TSRMLS_CC);
-	zend_declare_property_null(phalcon_acl_adapter_memory_ce, SL("_roles"), ZEND_ACC_PROTECTED TSRMLS_CC);
-	zend_declare_property_null(phalcon_acl_adapter_memory_ce, SL("_resources"), ZEND_ACC_PROTECTED TSRMLS_CC);
-	zend_declare_property_null(phalcon_acl_adapter_memory_ce, SL("_access"), ZEND_ACC_PROTECTED TSRMLS_CC);
-	zend_declare_property_null(phalcon_acl_adapter_memory_ce, SL("_roleInherits"), ZEND_ACC_PROTECTED TSRMLS_CC);
-	zend_declare_property_null(phalcon_acl_adapter_memory_ce, SL("_resourcesNames"), ZEND_ACC_PROTECTED TSRMLS_CC);
-	zend_declare_property_null(phalcon_acl_adapter_memory_ce, SL("_accessList"), ZEND_ACC_PROTECTED TSRMLS_CC);
+	zend_declare_property_null(yal_acl_adapter_memory_ce, SL("_rolesNames"), ZEND_ACC_PROTECTED TSRMLS_CC);
+	zend_declare_property_null(yal_acl_adapter_memory_ce, SL("_roles"), ZEND_ACC_PROTECTED TSRMLS_CC);
+	zend_declare_property_null(yal_acl_adapter_memory_ce, SL("_resources"), ZEND_ACC_PROTECTED TSRMLS_CC);
+	zend_declare_property_null(yal_acl_adapter_memory_ce, SL("_access"), ZEND_ACC_PROTECTED TSRMLS_CC);
+	zend_declare_property_null(yal_acl_adapter_memory_ce, SL("_roleInherits"), ZEND_ACC_PROTECTED TSRMLS_CC);
+	zend_declare_property_null(yal_acl_adapter_memory_ce, SL("_resourcesNames"), ZEND_ACC_PROTECTED TSRMLS_CC);
+	zend_declare_property_null(yal_acl_adapter_memory_ce, SL("_accessList"), ZEND_ACC_PROTECTED TSRMLS_CC);
 
-	zend_class_implements(phalcon_acl_adapter_memory_ce TSRMLS_CC, 1, phalcon_acl_adapterinterface_ce);
+	zend_class_implements(yal_acl_adapter_memory_ce TSRMLS_CC, 1, yal_acl_adapterinterface_ce);
 
 	return SUCCESS;
 }
@@ -121,30 +121,30 @@ PHALCON_INIT_CLASS(Phalcon_Acl_Adapter_Memory){
 /**
  * Phalcon\Acl\Adapter\Memory constructor
  */
-PHP_METHOD(Phalcon_Acl_Adapter_Memory, __construct){
+PHP_METHOD(Yal_Acl_Adapter_Memory, __construct){
 
 	zval *a0 = NULL, *a1 = NULL, *a2 = NULL;
 
-	PHALCON_MM_GROW();
+	YAL_MM_GROW();
 
-	phalcon_update_property_empty_array(phalcon_acl_adapter_memory_ce, this_ptr, SL("_access") TSRMLS_CC);
+	yal_update_property_empty_array(yal_acl_adapter_memory_ce, this_ptr, SL("_access") TSRMLS_CC);
 	
-	PHALCON_INIT_VAR(a0);
+	YAL_INIT_VAR(a0);
 	array_init_size(a0, 1);
 	add_assoc_bool_ex(a0, SS("*"), 1);
-	zend_update_property(phalcon_acl_adapter_memory_ce, this_ptr, SL("_resourcesNames"), a0 TSRMLS_CC);
+	zend_update_property(yal_acl_adapter_memory_ce, this_ptr, SL("_resourcesNames"), a0 TSRMLS_CC);
 	
-	PHALCON_INIT_VAR(a1);
+	YAL_INIT_VAR(a1);
 	array_init_size(a1, 1);
 	
-	PHALCON_INIT_VAR(a2);
+	YAL_INIT_VAR(a2);
 	array_init_size(a2, 1);
 	add_assoc_bool_ex(a2, SS("*"), 1);
-	phalcon_array_update_string(&a1, SL("*"), &a2, PH_COPY | PH_SEPARATE TSRMLS_CC);
-	zend_update_property(phalcon_acl_adapter_memory_ce, this_ptr, SL("_accessList"), a1 TSRMLS_CC);
+	yal_array_update_string(&a1, SL("*"), &a2, PH_COPY | PH_SEPARATE TSRMLS_CC);
+	zend_update_property(yal_acl_adapter_memory_ce, this_ptr, SL("_accessList"), a1 TSRMLS_CC);
 	
 
-	PHALCON_MM_RESTORE();
+	YAL_MM_RESTORE();
 }
 
 /**
@@ -160,55 +160,55 @@ PHP_METHOD(Phalcon_Acl_Adapter_Memory, __construct){
  * @param  array|string $accessInherits
  * @return boolean
  */
-PHP_METHOD(Phalcon_Acl_Adapter_Memory, addRole){
+PHP_METHOD(Yal_Acl_Adapter_Memory, addRole){
 
 	zval *role, *access_inherits = NULL, *role_name = NULL, *object = NULL;
 	zval *roles_names, *exists, *default_access;
 	zval *_access, *success;
 
-	PHALCON_MM_GROW();
+	YAL_MM_GROW();
 
 	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "z|z", &role, &access_inherits) == FAILURE) {
 		RETURN_MM_NULL();
 	}
 
 	if (!access_inherits) {
-		PHALCON_INIT_VAR(access_inherits);
+		YAL_INIT_VAR(access_inherits);
 	}
 	
 	if (Z_TYPE_P(role) == IS_OBJECT) {
-		PHALCON_INIT_VAR(role_name);
-		PHALCON_CALL_METHOD(role_name, role, "getname");
-		PHALCON_CPY_WRT(object, role);
+		YAL_INIT_VAR(role_name);
+		YAL_CALL_METHOD(role_name, role, "getname");
+		YAL_CPY_WRT(object, role);
 	} else {
-		PHALCON_CPY_WRT(role_name, role);
+		YAL_CPY_WRT(role_name, role);
 	
-		PHALCON_INIT_VAR(object);
-		object_init_ex(object, phalcon_acl_role_ce);
-		PHALCON_CALL_METHOD_PARAMS_1_NORETURN(object, "__construct", role);
+		YAL_INIT_VAR(object);
+		object_init_ex(object, yal_acl_role_ce);
+		YAL_CALL_METHOD_PARAMS_1_NORETURN(object, "__construct", role);
 	
 	}
 	
-	PHALCON_OBS_VAR(roles_names);
-	phalcon_read_property_this(&roles_names, this_ptr, SL("_rolesNames"), PH_NOISY_CC);
-	if (phalcon_array_isset(roles_names, role_name)) {
+	YAL_OBS_VAR(roles_names);
+	yal_read_property_this(&roles_names, this_ptr, SL("_rolesNames"), PH_NOISY_CC);
+	if (yal_array_isset(roles_names, role_name)) {
 		RETURN_MM_FALSE;
 	}
 	
-	PHALCON_INIT_VAR(exists);
+	YAL_INIT_VAR(exists);
 	ZVAL_BOOL(exists, 1);
-	phalcon_update_property_array_append(this_ptr, SL("_roles"), object TSRMLS_CC);
-	phalcon_update_property_array(this_ptr, SL("_rolesNames"), role_name, exists TSRMLS_CC);
+	yal_update_property_array_append(this_ptr, SL("_roles"), object TSRMLS_CC);
+	yal_update_property_array(this_ptr, SL("_rolesNames"), role_name, exists TSRMLS_CC);
 	
-	PHALCON_OBS_VAR(default_access);
-	phalcon_read_property_this(&default_access, this_ptr, SL("_defaultAccess"), PH_NOISY_CC);
+	YAL_OBS_VAR(default_access);
+	yal_read_property_this(&default_access, this_ptr, SL("_defaultAccess"), PH_NOISY_CC);
 	
-	PHALCON_OBS_VAR(_access);
-	phalcon_read_property_this(&_access, this_ptr, SL("_access"), PH_NOISY_CC);
-	phalcon_array_update_zval_string_string_multi_3(&_access, role_name, SL("*"), SL("*"), &default_access, 0 TSRMLS_CC);
+	YAL_OBS_VAR(_access);
+	yal_read_property_this(&_access, this_ptr, SL("_access"), PH_NOISY_CC);
+	yal_array_update_zval_string_string_multi_3(&_access, role_name, SL("*"), SL("*"), &default_access, 0 TSRMLS_CC);
 	if (Z_TYPE_P(access_inherits) != IS_NULL) {
-		PHALCON_INIT_VAR(success);
-		PHALCON_CALL_METHOD_PARAMS_2(success, this_ptr, "addinherit", role_name, access_inherits);
+		YAL_INIT_VAR(success);
+		YAL_CALL_METHOD_PARAMS_2(success, this_ptr, "addinherit", role_name, access_inherits);
 		RETURN_CCTOR(success);
 	}
 	
@@ -221,20 +221,20 @@ PHP_METHOD(Phalcon_Acl_Adapter_Memory, addRole){
  * @param string $roleName
  * @param string $roleToInherit
  */
-PHP_METHOD(Phalcon_Acl_Adapter_Memory, addInherit){
+PHP_METHOD(Yal_Acl_Adapter_Memory, addInherit){
 
 	zval *role_name, *role_to_inherit, *roles_names;
 	zval *exception_message = NULL, *role_inherit_name = NULL;
 	zval *roles_inherits, *empty_arr, *_roleInherits;
 
-	PHALCON_MM_GROW();
+	YAL_MM_GROW();
 
 	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "zz", &role_name, &role_to_inherit) == FAILURE) {
 		RETURN_MM_NULL();
 	}
 
-	PHALCON_OBS_VAR(roles_names);
-	phalcon_read_property_this(&roles_names, this_ptr, SL("_rolesNames"), PH_NOISY_CC);
+	YAL_OBS_VAR(roles_names);
+	yal_read_property_this(&roles_names, this_ptr, SL("_rolesNames"), PH_NOISY_CC);
 	if (!phalcon_array_isset(roles_names, role_name)) {
 		PHALCON_INIT_VAR(exception_message);
 		PHALCON_CONCAT_SVS(exception_message, "Role '", role_name, "' does not exist in the role list");
