@@ -1,19 +1,19 @@
 
 /*
   +------------------------------------------------------------------------+
-  | Phalcon Framework                                                      |
+  | Yal Framework                                                      |
   +------------------------------------------------------------------------+
-  | Copyright (c) 2011-2013 Phalcon Team (http://www.phalconphp.com)       |
+  | Copyright (c) 2011-2013 Yal Team (http://www.Yalphp.com)       |
   +------------------------------------------------------------------------+
   | This source file is subject to the New BSD License that is bundled     |
   | with this package in the file docs/LICENSE.txt.                        |
   |                                                                        |
   | If you did not receive a copy of the license and are unable to         |
   | obtain it through the world-wide-web, please send an email             |
-  | to license@phalconphp.com so we can send you a copy immediately.       |
+  | to license@Yalphp.com so we can send you a copy immediately.       |
   +------------------------------------------------------------------------+
-  | Authors: Andres Gutierrez <andres@phalconphp.com>                      |
-  |          Eduar Carvajal <eduar@phalconphp.com>                         |
+  | Authors: Andres Gutierrez <andres@Yalphp.com>                      |
+  |          Eduar Carvajal <eduar@Yalphp.com>                         |
   +------------------------------------------------------------------------+
 */
 
@@ -22,8 +22,8 @@
 #endif
 
 #include "php.h"
-#include "php_phalcon.h"
-#include "phalcon.h"
+#include "php_yal.h"
+#include "yal.h"
 
 #include "Zend/zend_operators.h"
 #include "Zend/zend_exceptions.h"
@@ -33,18 +33,18 @@
 #include "kernel/memory.h"
 
 /**
- * Phalcon\Acl\Exception
+ * Yal\Acl\Exception
  *
- * Class for exceptions thrown by Phalcon\Acl
+ * Class for exceptions thrown by Yal\Acl
  */
 
 
 /**
- * Phalcon\Acl\Exception initializer
+ * Yal\Acl\Exception initializer
  */
-PHALCON_INIT_CLASS(Phalcon_Acl_Exception){
+YAL_INIT_CLASS(Yal_Acl_Exception){
 
-	PHALCON_REGISTER_CLASS_EX(Phalcon\\Acl, Exception, acl_exception, "phalcon\\exception", NULL, 0);
+	YAL_REGISTER_CLASS_EX(Yal\\Acl, Exception, acl_exception, "yal\\exception", NULL, 0);
 
 	return SUCCESS;
 }

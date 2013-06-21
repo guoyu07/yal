@@ -1,9 +1,9 @@
 
 /*
   +------------------------------------------------------------------------+
-  | Phalcon Framework                                                      |
+  | Yal Framework                                                      |
   +------------------------------------------------------------------------+
-  | Copyright (c) 2011-2013 Phalcon Team (http://www.yalphp.com)       |
+  | Copyright (c) 2011-2013 Yal Team (http://www.yalphp.com)       |
   +------------------------------------------------------------------------+
   | This source file is subject to the New BSD License that is bundled     |
   | with this package in the file docs/LICENSE.txt.                        |
@@ -50,7 +50,7 @@ void yal_concat_sv(zval **result, char *op1, zend_uint op1_len, zval *op2, int s
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -97,7 +97,7 @@ void yal_concat_svs(zval **result, char *op1, zend_uint op1_len, zval *op2, char
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -152,7 +152,7 @@ void yal_concat_svsv(zval **result, char *op1, zend_uint op1_len, zval *op2, cha
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -212,7 +212,7 @@ void yal_concat_svsvs(zval **result, char *op1, zend_uint op1_len, zval *op2, ch
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -280,7 +280,7 @@ void yal_concat_svsvsv(zval **result, char *op1, zend_uint op1_len, zval *op2, c
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -353,7 +353,7 @@ void yal_concat_svsvsvs(zval **result, char *op1, zend_uint op1_len, zval *op2, 
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -427,7 +427,7 @@ void yal_concat_svsvv(zval **result, char *op1, zend_uint op1_len, zval *op2, ch
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -492,7 +492,7 @@ void yal_concat_svv(zval **result, char *op1, zend_uint op1_len, zval *op2, zval
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -551,7 +551,7 @@ void yal_concat_svvs(zval **result, char *op1, zend_uint op1_len, zval *op2, zva
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -604,7 +604,7 @@ void yal_concat_vs(zval **result, zval *op1, char *op2, zend_uint op2_len, int s
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -658,7 +658,7 @@ void yal_concat_vsv(zval **result, zval *op1, char *op2, zend_uint op2_len, zval
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -717,7 +717,7 @@ void yal_concat_vsvs(zval **result, zval *op1, char *op2, zend_uint op2_len, zva
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -784,7 +784,7 @@ void yal_concat_vsvsv(zval **result, zval *op1, char *op2, zend_uint op2_len, zv
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -856,7 +856,7 @@ void yal_concat_vsvsvs(zval **result, zval *op1, char *op2, zend_uint op2_len, z
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -936,7 +936,7 @@ void yal_concat_vsvsvsv(zval **result, zval *op1, char *op2, zend_uint op2_len, 
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -1014,7 +1014,7 @@ void yal_concat_vsvv(zval **result, zval *op1, char *op2, zend_uint op2_len, zva
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -1092,7 +1092,7 @@ void yal_concat_vsvvv(zval **result, zval *op1, char *op2, zend_uint op2_len, zv
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -1161,7 +1161,7 @@ void yal_concat_vv(zval **result, zval *op1, zval *op2, int self_var TSRMLS_DC){
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -1219,7 +1219,7 @@ void yal_concat_vvs(zval **result, zval *op1, zval *op2, char *op3, zend_uint op
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -1285,7 +1285,7 @@ void yal_concat_vvsv(zval **result, zval *op1, zval *op2, char *op3, zend_uint o
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -1356,7 +1356,7 @@ void yal_concat_vvv(zval **result, zval *op1, zval *op2, zval *op3, int self_var
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -1433,7 +1433,7 @@ void yal_concat_vvvsv(zval **result, zval *op1, zval *op2, zval *op3, char *op4,
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -1516,7 +1516,7 @@ void yal_concat_vvvv(zval **result, zval *op1, zval *op2, zval *op3, zval *op4, 
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -1612,7 +1612,7 @@ void yal_concat_vvvvsvv(zval **result, zval *op1, zval *op2, zval *op3, zval *op
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 
@@ -1712,7 +1712,7 @@ void yal_concat_vvvvv(zval **result, zval *op1, zval *op2, zval *op3, zval *op4,
 		if (Z_TYPE_PP(result) != IS_STRING) {
 			zend_make_printable_zval(*result, &result_copy, &use_copy);
 			if (use_copy) {
-				PHALCON_CPY_WRT_CTOR(*result, (&result_copy));
+				Yal_CPY_WRT_CTOR(*result, (&result_copy));
 			}
 		}
 

@@ -1,19 +1,19 @@
 
 /*
   +------------------------------------------------------------------------+
-  | Phalcon Framework                                                      |
+  | Yal Framework                                                      |
   +------------------------------------------------------------------------+
-  | Copyright (c) 2011-2013 Phalcon Team (http://www.phalconphp.com)       |
+  | Copyright (c) 2011-2013 Yal Team (http://www.Yalphp.com)       |
   +------------------------------------------------------------------------+
   | This source file is subject to the New BSD License that is bundled     |
   | with this package in the file docs/LICENSE.txt.                        |
   |                                                                        |
   | If you did not receive a copy of the license and are unable to         |
   | obtain it through the world-wide-web, please send an email             |
-  | to license@phalconphp.com so we can send you a copy immediately.       |
+  | to license@Yalphp.com so we can send you a copy immediately.       |
   +------------------------------------------------------------------------+
-  | Authors: Andres Gutierrez <andres@phalconphp.com>                      |
-  |          Eduar Carvajal <eduar@phalconphp.com>                         |
+  | Authors: Andres Gutierrez <andres@Yalphp.com>                      |
+  |          Eduar Carvajal <eduar@Yalphp.com>                         |
   +------------------------------------------------------------------------+
 */
 
@@ -22,43 +22,43 @@
 #endif
 
 #include "php.h"
-#include "php_phalcon.h"
-#include "phalcon.h"
+#include "php_yal.h"
+#include "yal.h"
 
 #include "kernel/main.h"
 
 /**
- * Phalcon\Acl\AdapterInterface initializer
+ * Yal\Acl\AdapterInterface initializer
  */
-PHALCON_INIT_CLASS(Phalcon_Acl_AdapterInterface){
+YAL_INIT_CLASS(Yal_Acl_AdapterInterface){
 
-	PHALCON_REGISTER_INTERFACE(Phalcon\\Acl, AdapterInterface, acl_adapterinterface, phalcon_acl_adapterinterface_method_entry);
+	YAL_REGISTER_INTERFACE(Yal\\Acl, AdapterInterface, acl_adapterinterface, yal_acl_adapterinterface_method_entry);
 
 	return SUCCESS;
 }
 
 /**
- * Sets the default access level (Phalcon\Acl::ALLOW or Phalcon\Acl::DENY)
+ * Sets the default access level (Yal\Acl::ALLOW or Yal\Acl::DENY)
  *
  * @param int $defaultAccess
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, setDefaultAction);
+YAL_DOC_METHOD(Yal_Acl_AdapterInterface, setDefaultAction);
 
 /**
  * Returns the default ACL access level
  *
  * @return int
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, getDefaultAction);
+YAL_DOC_METHOD(yal_Acl_AdapterInterface, getDefaultAction);
 
 /**
  * Adds a role to the ACL list. Second parameter lets to inherit access data from other existing role
  *
- * @param  Phalcon\Acl\RoleInterface $role
+ * @param  Yal\Acl\RoleInterface $role
  * @param  string $accessInherits
  * @return boolean
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, addRole);
+YAL_DOC_METHOD(Yal_Acl_AdapterInterface, addRole);
 
 /**
  * Do a role inherit from another existing role
@@ -66,7 +66,7 @@ PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, addRole);
  * @param string $roleName
  * @param string $roleToInherit
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, addInherit);
+YAL_DOC_METHOD(Yal_Acl_AdapterInterface, addInherit);
 
 /**
  * Check whether role exist in the roles list
@@ -74,7 +74,7 @@ PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, addInherit);
  * @param  string $roleName
  * @return boolean
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, isRole);
+YAL_DOC_METHOD(Yal_Acl_AdapterInterface, isRole);
 
 /**
  * Check whether resource exist in the resources list
@@ -82,7 +82,7 @@ PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, isRole);
  * @param  string $resourceName
  * @return boolean
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, isResource);
+YAL_DOC_METHOD(Yal_Acl_AdapterInterface, isResource);
 
 /**
  * Adds a resource to the ACL list
@@ -90,11 +90,11 @@ PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, isResource);
  * Access names can be a particular action, by example
  * search, update, delete, etc or a list of them
  *
- * @param   Phalcon\Acl\ResourceInterface $resource
+ * @param   Yal\Acl\ResourceInterface $resource
  * @param   array $accessList
  * @return  boolean
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, addResource);
+YAL_DOC_METHOD(Yal_Acl_AdapterInterface, addResource);
 
 /**
  * Adds access to resources
@@ -102,7 +102,7 @@ PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, addResource);
  * @param string $resourceName
  * @param mixed $accessList
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, addResourceAccess);
+YAL_DOC_METHOD(Yal_Acl_AdapterInterface, addResourceAccess);
 
 /**
  * Removes an access from a resource
@@ -110,7 +110,7 @@ PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, addResourceAccess);
  * @param string $resourceName
  * @param mixed $accessList
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, dropResourceAccess);
+YAL_DOC_METHOD(Yal_Acl_AdapterInterface, dropResourceAccess);
 
 /**
  * Allow access to a role on a resource
@@ -119,7 +119,7 @@ PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, dropResourceAccess);
  * @param string $resourceName
  * @param mixed $access
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, allow);
+YAL_DOC_METHOD(Yal_Acl_AdapterInterface, allow);
 
 /**
  * Deny access to a role on a resource
@@ -129,7 +129,7 @@ PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, allow);
  * @param mixed $access
  * @return boolean
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, deny);
+YAL_DOC_METHOD(Yal_Acl_AdapterInterface, deny);
 
 /**
  * Check whether a role is allowed to access an action from a resource
@@ -139,40 +139,40 @@ PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, deny);
  * @param  string $access
  * @return boolean
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, isAllowed);
+YAL_DOC_METHOD(Yal_Acl_AdapterInterface, isAllowed);
 
 /**
  * Returns the role which the list is checking if it's allowed to certain resource/access
  *
  * @return string
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, getActiveRole);
+YAL_DOC_METHOD(Yal_Acl_AdapterInterface, getActiveRole);
 
 /**
  * Returns the resource which the list is checking if some role can access it
  *
  * @return string
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, getActiveResource);
+YAL_DOC_METHOD(Yal_Acl_AdapterInterface, getActiveResource);
 
 /**
  * Returns the access which the list is checking if some role can access it
  *
  * @return string
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, getActiveAccess);
+YAL_DOC_METHOD(Yal_Acl_AdapterInterface, getActiveAccess);
 
 /**
  * Return an array with every role registered in the list
  *
- * @return Phalcon\Acl\RoleInterface[]
+ * @return Yal\Acl\RoleInterface[]
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, getRoles);
+YAL_DOC_METHOD(Yal_Acl_AdapterInterface, getRoles);
 
 /**
  * Return an array with every resource registered in the list
  *
- * @return Phalcon\Acl\ResourceInterface[]
+ * @return Yal\Acl\ResourceInterface[]
  */
-PHALCON_DOC_METHOD(Phalcon_Acl_AdapterInterface, getResources);
+YAL_DOC_METHOD(Yal_Acl_AdapterInterface, getResources);
 

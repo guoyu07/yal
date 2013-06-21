@@ -1,19 +1,19 @@
 
 /*
   +------------------------------------------------------------------------+
-  | Phalcon Framework                                                      |
+  | Yal Framework                                                      |
   +------------------------------------------------------------------------+
-  | Copyright (c) 2011-2013 Phalcon Team (http://www.phalconphp.com)       |
+  | Copyright (c) 2011-2013 Yal Team (http://www.Yalphp.com)       |
   +------------------------------------------------------------------------+
   | This source file is subject to the New BSD License that is bundled     |
   | with this package in the file docs/LICENSE.txt.                        |
   |                                                                        |
   | If you did not receive a copy of the license and are unable to         |
   | obtain it through the world-wide-web, please send an email             |
-  | to license@phalconphp.com so we can send you a copy immediately.       |
+  | to license@Yalphp.com so we can send you a copy immediately.       |
   +------------------------------------------------------------------------+
-  | Authors: Andres Gutierrez <andres@phalconphp.com>                      |
-  |          Eduar Carvajal <eduar@phalconphp.com>                         |
+  | Authors: Andres Gutierrez <andres@Yalphp.com>                      |
+  |          Eduar Carvajal <eduar@Yalphp.com>                         |
   +------------------------------------------------------------------------+
 */
 
@@ -38,8 +38,8 @@ yal_debug_entry *active = NULL;
  */
 int yal_start_debug(){
 	if(!yal_log){
-		/*//yal_log = fopen("/home/gutierrezandresfelipe/phalcon-debug.a", "w");
-		yal_log = fopen("/tmp/phalcon-debug.a", "w");
+		/*//yal_log = fopen("/home/gutierrezandresfelipe/Yal-debug.a", "w");
+		yal_log = fopen("/tmp/Yal-debug.a", "w");
 		if(!yal_log){
 			fprintf(stderr, "Can't open debug log\n");
 		}*/

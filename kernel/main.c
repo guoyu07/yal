@@ -1,16 +1,16 @@
 
 /*
   +------------------------------------------------------------------------+
-  | Phalcon Framework                                                      |
+  | Yal Framework                                                      |
   +------------------------------------------------------------------------+
-  | Copyright (c) 2011-2013 Phalcon Team (http://www.phalconphp.com)       |
+  | Copyright (c) 2011-2013 Yal Team (http://www.Yalphp.com)       |
   +------------------------------------------------------------------------+
   | This source file is subject to the New BSD License that is bundled     |
   | with this package in the file docs/LICENSE.txt.                        |
   |                                                                        |
   | If you did not receive a copy of the license and are unable to         |
   | obtain it through the world-wide-web, please send an email             |
-  | to license@phalconphp.com so we can send you a copy immediately.       |
+  | to license@Yalphp.com so we can send you a copy immediately.       |
   +------------------------------------------------------------------------+
   | Authors: WenJun <wenjun1055@gmail.com>                                 |
   +------------------------------------------------------------------------+
@@ -50,7 +50,7 @@ void php_yal_init_globals(zend_yal_globals *yal_globals TSRMLS_DC) {
 	yal_globals->recursive_lock = 0;
 
 	/* Stats options */
-	#ifndef PHALCON_RELEASE
+	#ifndef Yal_RELEASE
 	yal_globals->yal_stack_stats  = 0;
 	yal_globals->yal_number_grows = 0;
 	#endif

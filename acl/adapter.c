@@ -1,19 +1,19 @@
 
 /*
   +------------------------------------------------------------------------+
-  | Phalcon Framework                                                      |
+  | Yal Framework                                                      |
   +------------------------------------------------------------------------+
-  | Copyright (c) 2011-2013 Phalcon Team (http://www.phalconphp.com)       |
+  | Copyright (c) 2011-2013 Yal Team (http://www.Yalphp.com)       |
   +------------------------------------------------------------------------+
   | This source file is subject to the New BSD License that is bundled     |
   | with this package in the file docs/LICENSE.txt.                        |
   |                                                                        |
   | If you did not receive a copy of the license and are unable to         |
   | obtain it through the world-wide-web, please send an email             |
-  | to license@phalconphp.com so we can send you a copy immediately.       |
+  | to license@Yalphp.com so we can send you a copy immediately.       |
   +------------------------------------------------------------------------+
-  | Authors: Andres Gutierrez <andres@phalconphp.com>                      |
-  |          Eduar Carvajal <eduar@phalconphp.com>                         |
+  | Authors: Andres Gutierrez <andres@Yalphp.com>                      |
+  |          Eduar Carvajal <eduar@Yalphp.com>                         |
   +------------------------------------------------------------------------+
 */
 
@@ -22,8 +22,8 @@
 #endif
 
 #include "php.h"
-#include "php_phalcon.h"
-#include "phalcon.h"
+#include "php_yal.h"
+#include "yal.h"
 
 #include "Zend/zend_operators.h"
 #include "Zend/zend_exceptions.h"
@@ -35,27 +35,27 @@
 #include "kernel/object.h"
 
 /**
- * Phalcon\Acl\Adapter
+ * Yal\Acl\Adapter
  *
- * Adapter for Phalcon\Acl adapters
+ * Adapter for Yal\Acl adapters
  */
 
 
 /**
- * Phalcon\Acl\Adapter initializer
+ * Yal\Acl\Adapter initializer
  */
-PHALCON_INIT_CLASS(Phalcon_Acl_Adapter){
+YAL_INIT_CLASS(Yal_Acl_Adapter){
 
-	PHALCON_REGISTER_CLASS(Phalcon\\Acl, Adapter, acl_adapter, phalcon_acl_adapter_method_entry, ZEND_ACC_EXPLICIT_ABSTRACT_CLASS);
+	YAL_REGISTER_CLASS(Yal\\Acl, Adapter, acl_adapter, yal_acl_adapter_method_entry, ZEND_ACC_EXPLICIT_ABSTRACT_CLASS);
 
-	zend_declare_property_null(phalcon_acl_adapter_ce, SL("_eventsManager"), ZEND_ACC_PROTECTED TSRMLS_CC);
-	zend_declare_property_long(phalcon_acl_adapter_ce, SL("_defaultAccess"), 1, ZEND_ACC_PROTECTED TSRMLS_CC);
-	zend_declare_property_bool(phalcon_acl_adapter_ce, SL("_accessGranted"), 0, ZEND_ACC_PROTECTED TSRMLS_CC);
-	zend_declare_property_null(phalcon_acl_adapter_ce, SL("_activeRole"), ZEND_ACC_PROTECTED TSRMLS_CC);
-	zend_declare_property_null(phalcon_acl_adapter_ce, SL("_activeResource"), ZEND_ACC_PROTECTED TSRMLS_CC);
-	zend_declare_property_null(phalcon_acl_adapter_ce, SL("_activeAccess"), ZEND_ACC_PROTECTED TSRMLS_CC);
+	zend_declare_property_null(yal_acl_adapter_ce, SL("_eventsManager"), ZEND_ACC_PROTECTED TSRMLS_CC);
+	zend_declare_property_long(yal_acl_adapter_ce, SL("_defaultAccess"), 1, ZEND_ACC_PROTECTED TSRMLS_CC);
+	zend_declare_property_bool(yal_acl_adapter_ce, SL("_accessGranted"), 0, ZEND_ACC_PROTECTED TSRMLS_CC);
+	zend_declare_property_null(yal_acl_adapter_ce, SL("_activeRole"), ZEND_ACC_PROTECTED TSRMLS_CC);
+	zend_declare_property_null(yal_acl_adapter_ce, SL("_activeResource"), ZEND_ACC_PROTECTED TSRMLS_CC);
+	zend_declare_property_null(yal_acl_adapter_ce, SL("_activeAccess"), ZEND_ACC_PROTECTED TSRMLS_CC);
 
-	zend_class_implements(phalcon_acl_adapter_ce TSRMLS_CC, 1, phalcon_events_eventsawareinterface_ce);
+	zend_class_implements(yal_acl_adapter_ce TSRMLS_CC, 1, yal_events_eventsawareinterface_ce);
 
 	return SUCCESS;
 }
@@ -63,9 +63,9 @@ PHALCON_INIT_CLASS(Phalcon_Acl_Adapter){
 /**
  * Sets the events manager
  *
- * @param Phalcon\Events\ManagerInterface $eventsManager
+ * @param Yal\Events\ManagerInterface $eventsManager
  */
-PHP_METHOD(Phalcon_Acl_Adapter, setEventsManager){
+PHP_METHOD(Yal_Acl_Adapter, setEventsManager){
 
 	zval *events_manager;
 
@@ -73,27 +73,27 @@ PHP_METHOD(Phalcon_Acl_Adapter, setEventsManager){
 		RETURN_NULL();
 	}
 
-	phalcon_update_property_this(this_ptr, SL("_eventsManager"), events_manager TSRMLS_CC);
+	yal_update_property_this(this_ptr, SL("_eventsManager"), events_manager TSRMLS_CC);
 	
 }
 
 /**
  * Returns the internal event manager
  *
- * @return Phalcon\Events\ManagerInterface
+ * @return Yal\Events\ManagerInterface
  */
-PHP_METHOD(Phalcon_Acl_Adapter, getEventsManager){
+PHP_METHOD(Yal_Acl_Adapter, getEventsManager){
 
 
 	RETURN_MEMBER(this_ptr, "_eventsManager");
 }
 
 /**
- * Sets the default access level (Phalcon\Acl::ALLOW or Phalcon\Acl::DENY)
+ * Sets the default access level (Yal\Acl::ALLOW or Yal\Acl::DENY)
  *
  * @param int $defaultAccess
  */
-PHP_METHOD(Phalcon_Acl_Adapter, setDefaultAction){
+PHP_METHOD(Yal_Acl_Adapter, setDefaultAction){
 
 	zval *default_access;
 
@@ -101,7 +101,7 @@ PHP_METHOD(Phalcon_Acl_Adapter, setDefaultAction){
 		RETURN_NULL();
 	}
 
-	phalcon_update_property_this(this_ptr, SL("_defaultAccess"), default_access TSRMLS_CC);
+	yal_update_property_this(this_ptr, SL("_defaultAccess"), default_access TSRMLS_CC);
 	
 }
 
@@ -110,7 +110,7 @@ PHP_METHOD(Phalcon_Acl_Adapter, setDefaultAction){
  *
  * @return int
  */
-PHP_METHOD(Phalcon_Acl_Adapter, getDefaultAction){
+PHP_METHOD(Yal_Acl_Adapter, getDefaultAction){
 
 
 	RETURN_MEMBER(this_ptr, "_defaultAccess");
@@ -121,7 +121,7 @@ PHP_METHOD(Phalcon_Acl_Adapter, getDefaultAction){
  *
  * @return string
  */
-PHP_METHOD(Phalcon_Acl_Adapter, getActiveRole){
+PHP_METHOD(Yal_Acl_Adapter, getActiveRole){
 
 
 	RETURN_MEMBER(this_ptr, "_activeRole");
@@ -132,7 +132,7 @@ PHP_METHOD(Phalcon_Acl_Adapter, getActiveRole){
  *
  * @return string
  */
-PHP_METHOD(Phalcon_Acl_Adapter, getActiveResource){
+PHP_METHOD(Yal_Acl_Adapter, getActiveResource){
 
 
 	RETURN_MEMBER(this_ptr, "_activeResource");
@@ -143,7 +143,7 @@ PHP_METHOD(Phalcon_Acl_Adapter, getActiveResource){
  *
  * @return string
  */
-PHP_METHOD(Phalcon_Acl_Adapter, getActiveAccess){
+PHP_METHOD(Yal_Acl_Adapter, getActiveAccess){
 
 
 	RETURN_MEMBER(this_ptr, "_activeAccess");

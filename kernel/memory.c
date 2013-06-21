@@ -1,19 +1,19 @@
 
 /*
   +------------------------------------------------------------------------+
-  | Phalcon Framework                                                      |
+  | yal Framework                                                      |
   +------------------------------------------------------------------------+
-  | Copyright (c) 2011-2013 Phalcon Team (http://www.phalconphp.com)       |
+  | Copyright (c) 2011-2013 yal Team (http://www.yalphp.com)       |
   +------------------------------------------------------------------------+
   | This source file is subject to the New BSD License that is bundled     |
   | with this package in the file docs/LICENSE.txt.                        |
   |                                                                        |
   | If you did not receive a copy of the license and are unable to         |
   | obtain it through the world-wide-web, please send an email             |
-  | to license@phalconphp.com so we can send you a copy immediately.       |
+  | to license@yalphp.com so we can send you a copy immediately.       |
   +------------------------------------------------------------------------+
-  | Authors: Andres Gutierrez <andres@phalconphp.com>                      |
-  |          Eduar Carvajal <eduar@phalconphp.com>                         |
+  | Authors: Andres Gutierrez <andres@yalphp.com>                      |
+  |          Eduar Carvajal <eduar@yalphp.com>                         |
   +------------------------------------------------------------------------+
 */
 
@@ -30,15 +30,15 @@
  * Memory Frames/Virtual Symbol Scopes
  *------------------------------------
  *
- * Phalcon uses memory frames to track the variables used whithin a method
+ * yal uses memory frames to track the variables used whithin a method
  * in order to free them or reduce their reference count accordingly before
  * exit the method in execution.
  *
  * The whole memory frame is an open double-linked list which start is an
  * allocated empty frame that points to the real first frame. The start
- * memory frame is globally accesed using PHALCON_GLOBAL(start_frame)
+ * memory frame is globally accesed using yal_GLOBAL(start_frame)
  *
- * Not all methods must grown/restore the phalcon_memory_entry.
+ * Not all methods must grown/restore the yal_memory_entry.
  */
 
 /**
@@ -282,7 +282,7 @@ int YAL_FASTCALL yal_memory_remove(zval **var TSRMLS_DC) {
 }
 
 /**
- * Cleans the phalcon memory stack recursivery
+ * Cleans the yal memory stack recursivery
  */
 int YAL_FASTCALL yal_clean_restore_stack(TSRMLS_D) {
     while (YAL_GLOBAL(active_memory) != NULL) {
@@ -311,7 +311,7 @@ void yal_create_symbol_table(TSRMLS_D) {
     HashTable *symbol_table;
 
     #ifndef YAL_RELEASE
-    if (!PHALCON_GLOBAL(active_memory)) {
+    if (!yal_GLOBAL(active_memory)) {
         fprintf(stderr, "ERROR: Trying to create a virtual symbol table without a memory frame");
         return;
     }
@@ -335,12 +335,12 @@ void yal_clean_symbol_tables(TSRMLS_D) {
 
     /*unsigned int i;
 
-    if (PHALCON_GLOBAL(symbol_tables)) {
-        for (i = PHALCON_GLOBAL(number_symbol_tables); i > 0; i--) {
-            EG(active_symbol_table) = PHALCON_GLOBAL(symbol_tables)[i - 1];
+    if (yal_GLOBAL(symbol_tables)) {
+        for (i = yal_GLOBAL(number_symbol_tables); i > 0; i--) {
+            EG(active_symbol_table) = yal_GLOBAL(symbol_tables)[i - 1];
         }
-        efree(PHALCON_GLOBAL(symbol_tables));
-        PHALCON_GLOBAL(symbol_tables) = NULL;
+        efree(yal_GLOBAL(symbol_tables));
+        yal_GLOBAL(symbol_tables) = NULL;
     }*/
 }
 

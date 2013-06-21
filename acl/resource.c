@@ -1,19 +1,19 @@
 
 /*
   +------------------------------------------------------------------------+
-  | Phalcon Framework                                                      |
+  | Yal Framework                                                      |
   +------------------------------------------------------------------------+
-  | Copyright (c) 2011-2013 Phalcon Team (http://www.phalconphp.com)       |
+  | Copyright (c) 2011-2013 Yal Team (http://www.yalphp.com)       |
   +------------------------------------------------------------------------+
   | This source file is subject to the New BSD License that is bundled     |
   | with this package in the file docs/LICENSE.txt.                        |
   |                                                                        |
   | If you did not receive a copy of the license and are unable to         |
   | obtain it through the world-wide-web, please send an email             |
-  | to license@phalconphp.com so we can send you a copy immediately.       |
+  | to license@yalphp.com so we can send you a copy immediately.       |
   +------------------------------------------------------------------------+
-  | Authors: Andres Gutierrez <andres@phalconphp.com>                      |
-  |          Eduar Carvajal <eduar@phalconphp.com>                         |
+  | Authors: Andres Gutierrez <andres@yalphp.com>                      |
+  |          Eduar Carvajal <eduar@yalphp.com>                         |
   +------------------------------------------------------------------------+
 */
 
@@ -22,8 +22,8 @@
 #endif
 
 #include "php.h"
-#include "php_phalcon.h"
-#include "phalcon.h"
+#include "php_yal.h"
+#include "yal.h"
 
 #include "Zend/zend_operators.h"
 #include "Zend/zend_exceptions.h"
@@ -37,7 +37,7 @@
 #include "kernel/object.h"
 
 /**
- * Phalcon\Acl\Resource
+ * Yal\Acl\Resource
  *
  * This class defines resource entity and its description
  *
@@ -45,50 +45,50 @@
 
 
 /**
- * Phalcon\Acl\Resource initializer
+ * Yal\Acl\Resource initializer
  */
-PHALCON_INIT_CLASS(Phalcon_Acl_Resource){
+YAL_INIT_CLASS(Yal_Acl_Resource){
 
-	PHALCON_REGISTER_CLASS(Phalcon\\Acl, Resource, acl_resource, phalcon_acl_resource_method_entry, 0);
+	YAL_REGISTER_CLASS(Yal\\Acl, Resource, acl_resource, yal_acl_resource_method_entry, 0);
 
-	zend_declare_property_null(phalcon_acl_resource_ce, SL("_name"), ZEND_ACC_PROTECTED TSRMLS_CC);
-	zend_declare_property_null(phalcon_acl_resource_ce, SL("_description"), ZEND_ACC_PROTECTED TSRMLS_CC);
+	zend_declare_property_null(yal_acl_resource_ce, SL("_name"), ZEND_ACC_PROTECTED TSRMLS_CC);
+	zend_declare_property_null(yal_acl_resource_ce, SL("_description"), ZEND_ACC_PROTECTED TSRMLS_CC);
 
-	zend_class_implements(phalcon_acl_resource_ce TSRMLS_CC, 1, phalcon_acl_resourceinterface_ce);
+	zend_class_implements(yal_acl_resource_ce TSRMLS_CC, 1, yal_acl_resourceinterface_ce);
 
 	return SUCCESS;
 }
 
 /**
- * Phalcon\Acl\Resource constructor
+ * Yal\Acl\Resource constructor
  *
  * @param string $name
  * @param string $description
  */
-PHP_METHOD(Phalcon_Acl_Resource, __construct){
+PHP_METHOD(Yal_Acl_Resource, __construct){
 
 	zval *name, *description = NULL;
 
-	PHALCON_MM_GROW();
+	YAL_MM_GROW();
 
 	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "z|z", &name, &description) == FAILURE) {
 		RETURN_MM_NULL();
 	}
 
 	if (!description) {
-		PHALCON_INIT_VAR(description);
+		YAL_INIT_VAR(description);
 	}
 	
-	if (PHALCON_IS_STRING(name, "*")) {
-		PHALCON_THROW_EXCEPTION_STR(phalcon_acl_exception_ce, "Resource name cannot be \"*\"");
+	if (YAL_IS_STRING(name, "*")) {
+		YAL_THROW_EXCEPTION_STR(yal_acl_exception_ce, "Resource name cannot be \"*\"");
 		return;
 	}
-	phalcon_update_property_this(this_ptr, SL("_name"), name TSRMLS_CC);
+	yal_update_property_this(this_ptr, SL("_name"), name TSRMLS_CC);
 	if (Z_TYPE_P(description) != IS_NULL) {
-		phalcon_update_property_this(this_ptr, SL("_description"), description TSRMLS_CC);
+		yal_update_property_this(this_ptr, SL("_description"), description TSRMLS_CC);
 	}
 	
-	PHALCON_MM_RESTORE();
+	YAL_MM_RESTORE();
 }
 
 /**
@@ -96,7 +96,7 @@ PHP_METHOD(Phalcon_Acl_Resource, __construct){
  *
  * @return string
  */
-PHP_METHOD(Phalcon_Acl_Resource, getName){
+PHP_METHOD(Yal_Acl_Resource, getName){
 
 
 	RETURN_MEMBER(this_ptr, "_name");
@@ -107,7 +107,7 @@ PHP_METHOD(Phalcon_Acl_Resource, getName){
  *
  * @return string
  */
-PHP_METHOD(Phalcon_Acl_Resource, getDescription){
+PHP_METHOD(Yal_Acl_Resource, getDescription){
 
 
 	RETURN_MEMBER(this_ptr, "_description");
@@ -118,7 +118,7 @@ PHP_METHOD(Phalcon_Acl_Resource, getDescription){
  *
  * @return string
  */
-PHP_METHOD(Phalcon_Acl_Resource, __toString){
+PHP_METHOD(Yal_Acl_Resource, __toString){
 
 
 	RETURN_MEMBER(this_ptr, "_name");
