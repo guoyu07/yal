@@ -23,9 +23,25 @@
 #endif
 
 #include "php.h"
-#include "php_ini.h"
-#include "ext/standard/info.h"
 #include "php_yal.h"
+#include "yal.h"
+
+#include "Zend/zend_operators.h"
+#include "Zend/zend_exceptions.h"
+#include "Zend/zend_interfaces.h"
+
+#include "kernel/main.h"
+#include "kernel/memory.h"
+
+
+zend_class_entry *yal_acl_role_ce;
+zend_class_entry *yal_acl_resource_ce;
+zend_class_entry *yal_acl_adapter_ce;
+zend_class_entry *yal_acl_exception_ce;
+zend_class_entry *yal_acl_adapter_memory_ce;
+zend_class_entry *yal_acl_adapterinterface_ce;
+zend_class_entry *yal_acl_roleinterface_ce;
+zend_class_entry *yal_acl_resourceinterface_ce;
 
 /* If you declare any globals in php_yal.h uncomment this:
 ZEND_DECLARE_MODULE_GLOBALS(yal)
@@ -39,8 +55,7 @@ static int le_yal;
  * Every user visible function must have an entry in yal_functions[].
  */
 const zend_function_entry yal_functions[] = {
-	PHP_FE(confirm_yal_compiled,	NULL)		/* For testing, remove later. */
-	PHP_FE_END	/* Must be the last line in yal_functions[] */
+	{NULL, NULL, NULL}
 };
 /* }}} */
 
@@ -96,6 +111,7 @@ PHP_MINIT_FUNCTION(yal)
 	/* If you have INI entries, uncomment these lines 
 	REGISTER_INI_ENTRIES();
 	*/
+	ZEND_MODULE_STARTUP_N(yal_acl)(INIT_FUNC_ARGS_PASSTHRU);
 	return SUCCESS;
 }
 /* }}} */

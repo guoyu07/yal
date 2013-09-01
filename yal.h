@@ -17,6 +17,12 @@
   +------------------------------------------------------------------------+
 */
 
-extern zend_class_entry *yal_acl_ce;
-
-YAL_INIT_CLASS(Yal_Acl);
+#include "acl.h"
+#include "acl/adapter/memory.h"
+#include "acl/adapter.h"
+#include "acl/adapterinterface.h"
+#include "acl/exception.h"
+#include "acl/resource.h"
+#include "acl/resourceinterface.h"
+#include "acl/role.h"
+#include "acl/roleinterface.h"
